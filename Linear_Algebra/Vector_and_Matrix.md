@@ -17,21 +17,23 @@ $$x \in \mathbb{R}^n$$
 이후에 이야기할 텐서의 개념임
 
 $$
-\mathbf{A} = 
-\begin{bmatrix}
+\mathbf{A} = \begin{bmatrix}
    a_{11} & a_{12} & a_{13}  \\
    a_{21} & a_{22} & a_{23}  \\
    a_{31} & a_{32} & a_{33}  \\
 \end{bmatrix}
- =
- \begin{bmatrix}
+ = \begin{bmatrix}
    \mathbf{a_{1}} & \mathbf{a_{2}} & \mathbf{a_{3}}  \\
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 행렬의 차원은 각 벡터의 차원의 합과 같음
 
 위의 예시의 경우에는
-$$ \mathbf{A} \in \mathbb{R}^{3n} $$
+
+$$ 
+\mathbf{A} \in \mathbb{R}^{3n} 
+$$
 
 
 # 내적과 외적
@@ -48,6 +50,7 @@ v_1 & v_2 & v_3 \\
 
 ### 외적의 기하학적 의미
 외적의 크기는 아래 식으로 표현할 수 있음
+
 $$ \mathbf{u} \times \mathbf{v} = \lvert \mathbf{u}\rvert \lvert \mathbf{v} \rvert \sin{\theta}\ \mathbf{n}$$
 
 여기서 $\mathbf{n}$은 $\mathbf{u}$와 $\mathbf{v}$의 수직인 단위 벡터를 의미함
@@ -68,7 +71,9 @@ $$ \mathbf{u} \cdot \mathbf{v} = u_1 \times v_1 + u_2 \times v_2 + ... + u_n \ti
 
 ### 내적의 기하학적 의미
 내적은 아래 식으로도 표현할 수 있음
-$$ \mathbf{u} \cdot \mathbf{v}  = \lvert \mathbf{u}\rvert \lvert \mathbf{v} \rvert \cos{\theta}
+
+$$
+   \mathbf{u} \cdot \mathbf{v}  = \lvert \mathbf{u}\rvert \lvert \mathbf{v} \rvert \cos{\theta}
 $$
 
 (문제) 내적의 계산과 내적의 기하학적 의미에 대해 두 식이 같음을 증명하면서 $\theta$가 어디의 각도를 의미하는지 생각해보기 (제2코사인함수 참고)
@@ -110,6 +115,7 @@ SIMD와 GPU를 활용한 벡터 연산
 ## 행렬 연산
 ### 행렬의 덧셈, 뺄셈
 행렬의 덧셈과 뺄셈은 각 원소끼리 더하거나 빼는 것
+
 $$ \mathbf{A} =
 \begin{bmatrix}
    a_{11} & a_{12} & a_{13}  \\
@@ -123,8 +129,7 @@ $$ \mathbf{A} =
    b_{21} & b_{22} & b_{23}  \\
    b_{31} & b_{32} & b_{33}  \\
 \end{bmatrix}
-=
-\begin{bmatrix}
+=\begin{bmatrix}
    a_{11} \pm b_{11} & a_{12} \pm b_{12} & a_{13} \pm b_{13}  \\
    a_{21} \pm b_{21} & a_{22} \pm b_{22} & a_{23} \pm b_{23}  \\
    a_{31} \pm b_{31} & a_{32} \pm b_{32} & a_{33} \pm b_{33}  \\
@@ -134,6 +139,7 @@ $$
 ### 행렬의 곱셈
 #### 상수배
 행렬의 각 원소에 상수를 곱하는 것
+
 $$ \mathbf{A} =
 \begin{bmatrix}
    a_{11} & a_{12} & a_{13}  \\
@@ -150,6 +156,7 @@ $$
 
 #### 아다마르 곱
 행렬의 각 원소끼리 곱하는 것
+
 $$ \mathbf{A} =
 \begin{bmatrix}
    a_{11} & a_{12} & a_{13}  \\
@@ -163,8 +170,7 @@ $$ \mathbf{A} =
    b_{21} & b_{22} & b_{23}  \\
    b_{31} & b_{32} & b_{33}  \\
 \end{bmatrix}
-=
-\begin{bmatrix}
+=\begin{bmatrix}
    a_{11} \cdot b_{11} & a_{12} \cdot b_{12} & a_{13} \cdot b_{13}  \\
    a_{21} \cdot b_{21} & a_{22} \cdot b_{22} & a_{23} \cdot b_{23}  \\
    a_{31} \cdot b_{31} & a_{32} \cdot b_{32} & a_{33} \cdot b_{33}  \\
@@ -185,8 +191,7 @@ $$ \mathbf{A} =
 \begin{bmatrix}
    \mathbf{b_{1}} & \mathbf{b_{2}} & \mathbf{b_{3}}  \\
 \end{bmatrix}
-=
-\begin{bmatrix}
+= \begin{bmatrix}
    \mathbf{a_{1}} \cdot \mathbf{b_{1}} & \mathbf{a_{1}} \cdot \mathbf{b_{2}} & \mathbf{a_{1}} \cdot \mathbf{b_{3}}  \\
    \mathbf{a_{2}} \cdot \mathbf{b_{1}} & \mathbf{a_{2}} \cdot \mathbf{b_{2}} & \mathbf{a_{2}} \cdot \mathbf{b_{3}}  \\
    \mathbf{a_{3}} \cdot \mathbf{b_{1}} & \mathbf{a_{3}} \cdot \mathbf{b_{2}} & \mathbf{a_{3}} \cdot \mathbf{b_{3}}  \\
@@ -199,7 +204,9 @@ $$
 흔히 Linear Projection이라고 하는데, 이는 행렬과 벡터의 곱을 내적으로 해석하며 이해할 수 있음
 
 예를 들어 $C \times H \times W$의 데이터를 $1 \times H \times W$의 데이터로 Linear Projection한다고 생각하면, 이는 다음과 같은 수식으로 표현됨
+
 $$ \mathbf{W} \cdot \mathbf{x} = \mathbf{y}$$
+
 여기서 $\mathbf{W}$는 $1 \times C$의 행렬, $\mathbf{X}$는 $C \times H \times W$의 텐서, $\mathbf{y}$는 $1 \times H \times W$의 텐서라고 볼 수 있음
 
 
@@ -228,22 +235,18 @@ $$
    a_{11} & a_{12} & a_{13}  \\
    a_{21} & a_{22} & a_{23}  \\
    a_{31} & a_{32} & a_{33}  \\
-\end{bmatrix}
-*
-\mathbf{v} =
+\end{bmatrix} * \mathbf{v} =
 \begin{bmatrix}
    v_1 \\
    v_2 \\
    v_3 \\
 \end{bmatrix}
-=
-\begin{bmatrix}
+= \begin{bmatrix}
    a_{11} \cdot v_1 + a_{12} \cdot v_2 + a_{13} \cdot v_3  \\
    a_{21} \cdot v_1 + a_{22} \cdot v_2 + a_{23} \cdot v_3  \\
    a_{31} \cdot v_1 + a_{32} \cdot v_2 + a_{33} \cdot v_3  \\
 \end{bmatrix}
-=
-\begin{bmatrix}
+= \begin{bmatrix}
    \mathbf{a_{1}} \cdot v_1 + \mathbf{a_{2}} \cdot v_2 + \mathbf{a_{3}} \cdot v_3  \\
 \end{bmatrix}
 $$
@@ -267,7 +270,8 @@ $$
    x_3 \\
 \end{bmatrix}
 $$
-에서 $\mathbf{A}$는 선형 변환에 사용되는 행렬으로 볼 수 있음
+
+$\mathbf{A}$는 선형 변환에 사용되는 행렬으로 볼 수 있음
 
 추후에 선형변환에 대해 더 자세하게 설명
 
@@ -279,6 +283,7 @@ $$ f: \mathbb{R}^n \to \mathbb{R} $$
 $$ f(\mathbf{x}) = y $$
 
 수식으로만 보면 이해가 잘 되지 않을 수 있다. 예시로 간단한 함수 하나를 살펴보자
+
 $$ f(\mathbf{x}) = f(x_1, x_2) = x_1^2 + x_2^2 $$
 
 ![](attachments/Pasted%20image%2020250402104117.png)
@@ -323,15 +328,14 @@ $$
 ## 벡터를 벡터로 미분하는 경우
 
 $$ f: \mathbb{R}^n \to \mathbb{R}^m $$
-$$ \frac{\partial f}{\partial \mathbf{x}} =
-\begin{bmatrix}
+
+$$ \frac{\partial f}{\partial \mathbf{x}} = \begin{bmatrix}
    \frac{\partial f}{\partial x_1} \\
    \frac{\partial f}{\partial x_2} \\
    \vdots \\
    \frac{\partial f}{\partial x_n} \\
 \end{bmatrix}
-=
-\begin{bmatrix}
+= \begin{bmatrix}
    \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_n} \\
    \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_2}{\partial x_n} \\
    \vdots & \vdots & \ddots & \vdots \\
@@ -341,7 +345,9 @@ $$
 
 
 ## 스칼라를 행렬로 미분
+
 $$ f: \mathbb{R}^{m \times n} \to \mathbb{R} $$
+
 $$ \frac{\partial f}{\partial \mathbf{X}} =
 \begin{bmatrix}
    \frac{\partial f}{\partial x_{11}} & \frac{\partial f}{\partial x_{12}} & \cdots & \frac{\partial f}{\partial x_{1n}} \\
@@ -349,3 +355,4 @@ $$ \frac{\partial f}{\partial \mathbf{X}} =
    \vdots & \vdots & \ddots & \vdots \\
    \frac{\partial f}{\partial x_{m1}} & \frac{\partial f}{\partial x_{m2}} & \cdots & \frac{\partial f}{\partial x_{mn}} \\
 \end{bmatrix}
+$$
